@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.apache.shiro.spring.boot.ShiroKissoWebAutoConfiguration,\
+org.apache.shiro.spring.boot.ShiroKissoWebFilterConfiguration

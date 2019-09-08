@@ -1,0 +1,16 @@
+server:
+    port: 8080
+
+# 单点信息配置，全部可无
+kisso:
+  config:
+    signkey: C691d971EJ3H376G81   # 对称签名密钥
+    cookieName: kisso             # COOKIE 名称
+
+shiro: 
+  enabled: true
+  sessionManager:
+    sessionIdCookieEnabled: true
+    sessionIdUrlRewritingEnabled:  true
+  kisso:
+    enabled: true
