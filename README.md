@@ -1,25 +1,22 @@
-# spring-boot-starter-shiro-kisso
-shiro starter for spring boot
+# spring-boot-starter-shiro-faceid
 
 ### 说明
 
 
- > 基于 Shiro 的 Spring Boot Starter 实现
+ > Shiro 整合人脸识别技术，实现  ukey + 人脸扫描 登录
 
-1. 默认的Handler实现
-2. 实现基于责任链式的消息分发
 
 ### Maven
 
 ``` xml
 <dependency>
 	<groupId>${project.groupId}</groupId>
-	<artifactId>spring-boot-starter-shiro-kisso</artifactId>
+	<artifactId>spring-boot-starter-shiro-faceid</artifactId>
 	<version>${project.version}</version>
 </dependency>
 ```
 
 ### Sample
 
-[https://github.com/vindell/spring-boot-starter-samples/tree/master/spring-boot-sample-shiro-kisso](https://github.com/vindell/spring-boot-starter-samples/tree/master/spring-boot-sample-shiro-kisso "spring-boot-sample-shiro-kisso")
+[https://github.com/vindell/spring-boot-starter-samples/tree/master/spring-boot-sample-shiro-faceid](https://github.com/vindell/spring-boot-starter-samples/tree/master/spring-boot-sample-shiro-faceid "spring-boot-sample-shiro-faceid")
 

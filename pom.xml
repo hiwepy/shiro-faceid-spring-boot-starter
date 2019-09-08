@@ -368,7 +368,6 @@
 		<commons-codec.version>1.11</commons-codec.version>
  		<commons-lang3.version>3.5</commons-lang3.version>
  		<commons-io.version>2.6</commons-io.version>
- 		<kisso.version>3.7.5</kisso.version>
  		<maven.version>3.0</maven.version>
        	<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
@@ -408,7 +407,12 @@
 				<artifactId>spring-boot-starter-opencv</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
-			
+	        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+			<dependency>
+			    <groupId>org.bouncycastle</groupId>
+			    <artifactId>bcprov-jdk15on</artifactId>
+			    <version>${bcprov-jdk15on.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
@@ -473,24 +477,16 @@
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/com.baomidou/kisso -->
+		<!-- Commons项目中用来处理Java基本对象方法的工具类包， 可以简化很多平时经常要用到的写法， 例如判断字符串是否为空等等 -->
 		<dependency>
-		    <groupId>com.baomidou</groupId>
-		    <artifactId>kisso</artifactId>
-		    <version>${kisso.version}</version>
-		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-		<dependency>
-		    <groupId>org.bouncycastle</groupId>
-		    <artifactId>bcprov-jdk15on</artifactId>
-		    <version>${bcprov-jdk15on.version}</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		
 		<!-- https://github.com/vindell/spring-boot-starter-shiro-biz -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
 			<artifactId>spring-boot-starter-shiro-biz</artifactId>
-			<version>${spring-boot-starter-shiro-biz.version}</version>
 		</dependency>
 		
 	</dependencies>
