@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, vindell (https://github.com/vindell).
+ * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -17,23 +17,11 @@ package org.apache.shiro.spring.boot.faceid;
 
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 
-import com.baomidou.kisso.security.token.SSOToken;
-
 /**
  * TODO
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 @SuppressWarnings("serial")
 public class FaceIDStatelessPrincipal extends ShiroPrincipal {
 
-	private final SSOToken token;
-	
-	public FaceIDStatelessPrincipal(SSOToken token) {
-		this.token = token;
-	}
-
-	public SSOToken getToken() {
-		return token;
-	}
-	
 }

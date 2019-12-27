@@ -10,12 +10,12 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>com.github.vindell</groupId>
+	<groupId>com.github.hiwepy</groupId>
 	<artifactId>spring-boot-starter-shiro-faceid</artifactId>
 	<description>Spring Boot Starter For Shiro With ukey + FaceID </description>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
-	<url>https://github.com/vindell/${project.artifactId}</url>
+	<url>https://github.com/hiwepy/${project.artifactId}</url>
 	<packaging>jar</packaging>
 
 	<licenses>
@@ -26,15 +26,15 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https:github.com/vindell/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:https:github.com/vindell/${project.artifactId}.git</developerConnection>
-		<url>https:github.com/vindell/${project.artifactId}</url>
+		<connection>scm:git:https:github.com/hiwepy/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https:github.com/hiwepy/${project.artifactId}.git</developerConnection>
+		<url>https:github.com/hiwepy/${project.artifactId}</url>
 		<tag>${project.artifactId}</tag>
 	</scm>
 
 	<developers>
 		<developer>
-			<name>vindell</name>
+			<name>wandl</name>
 			<email>hnxyhcwdl1003@163.com</email>
 			<roles>
 				<role>developer</role>
@@ -375,7 +375,7 @@
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <maven-surefire-plugin.vertsion>2.22.1</maven-surefire-plugin.vertsion>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
-		<spring-boot-starter-shiro-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.6-SNAPSHOT</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-baiduapi.version>1.0.0-SNAPSHOT</spring-boot-starter-baiduapi.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
@@ -383,27 +383,27 @@
 	
 	<dependencyManagement>
 		<dependencies>
-			<!-- https://github.com/vindell/spring-boot-starter-shiro-biz -->
+			<!-- https://github.com/hiwepy/spring-boot-starter-shiro-biz -->
 			<dependency>
-				<groupId>com.github.vindell</groupId>
+				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-boot-starter-shiro-biz</artifactId>
 				<version>${spring-boot-starter-shiro-biz.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-arcface -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-arcface -->
 			<dependency>
-				<groupId>com.github.vindell</groupId>
+				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-boot-starter-arcface</artifactId>
 				<version>${spring-boot-starter-arcface.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-baiduapi -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-baiduapi -->
 			<dependency>
-				<groupId>com.github.vindell</groupId>
+				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-boot-starter-baiduapi</artifactId>
 				<version>${spring-boot-starter-baiduapi.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-opencv -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-opencv -->
 			<dependency>
-				<groupId>com.github.vindell</groupId>
+				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-boot-starter-opencv</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
@@ -483,9 +483,9 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		
-		<!-- https://github.com/vindell/spring-boot-starter-shiro-biz -->
+		<!-- https://github.com/hiwepy/spring-boot-starter-shiro-biz -->
 		<dependency>
-			<groupId>com.github.vindell</groupId>
+			<groupId>com.github.hiwepy</groupId>
 			<artifactId>spring-boot-starter-shiro-biz</artifactId>
 		</dependency>
 		
