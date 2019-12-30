@@ -11,7 +11,7 @@
 	</parent>
 	
 	<groupId>com.github.hiwepy</groupId>
-	<artifactId>spring-boot-starter-shiro-faceid</artifactId>
+	<artifactId>shiro-faceid-spring-boot-starter</artifactId>
 	<description>Spring Boot Starter For Shiro With ukey + FaceID </description>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
@@ -386,7 +386,7 @@
 			<!-- https://github.com/hiwepy/spring-boot-starter-shiro-biz -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-biz</artifactId>
+				<artifactId>shiro-biz-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-biz.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-arcface -->
@@ -486,7 +486,7 @@
 		<!-- https://github.com/hiwepy/spring-boot-starter-shiro-biz -->
 		<dependency>
 			<groupId>com.github.hiwepy</groupId>
-			<artifactId>spring-boot-starter-shiro-biz</artifactId>
+			<artifactId>shiro-biz-spring-boot-starter</artifactId>
 		</dependency>
 		
 	</dependencies>
