@@ -27,15 +27,10 @@ import org.apache.shiro.biz.authc.AuthenticationSuccessHandler;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 import org.apache.shiro.biz.utils.SubjectUtils;
 import org.apache.shiro.biz.utils.WebUtils;
-import org.apache.shiro.spring.boot.kisso.token.KissoLoginToken;
+import org.apache.shiro.spring.boot.faceid.token.FaceIDLoginToken;
 import org.apache.shiro.subject.Subject;
 
-import com.baomidou.kisso.SSOHelper;
-import com.baomidou.kisso.security.token.SSOToken;
 import com.google.common.collect.Maps;
-
-import io.jsonwebtoken.impl.DefaultClaims;
-
 
 public class FaceIDAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
@@ -63,11 +58,6 @@ public class FaceIDAuthenticationSuccessHandler implements AuthenticationSuccess
 		map.put("roles", principal.getRoles());
 		map.put("perms", principal.getRoles());
 
-		SSOToken ssoToken = SSOToken.create().setIp(httpRequest).setUserAgent(httpRequest).setId(principal.getUserid())
-				.setIssuer("kisso").setClaims(new DefaultClaims(map));
-
-		// 设置登录 COOKIE
-		SSOHelper.setCookie(httpRequest, httpResponse, ssoToken, false);
 
 	}
 

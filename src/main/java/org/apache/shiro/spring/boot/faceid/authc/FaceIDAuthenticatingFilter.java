@@ -15,12 +15,8 @@
  */
 package org.apache.shiro.spring.boot.faceid.authc;
 
-import java.io.IOException;
-
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -34,20 +30,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.kisso.SSOHelper;
-import com.baomidou.kisso.common.SSOConstants;
-import com.baomidou.kisso.security.token.SSOToken;
-import com.baomidou.kisso.web.handler.KissoDefaultHandler;
-import com.baomidou.kisso.web.handler.SSOHandlerInterceptor;
 
 /**
- * Kisso 认证 (authentication)过滤器
+ * 人脸识别 认证 (authentication)过滤器
  * @author ： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public class FaceIDAuthenticatingFilter extends AbstractTrustableAuthenticatingFilter {
 
 	private static final Logger LOG = LoggerFactory.getLogger(FaceIDAuthenticatingFilter.class);
-	private SSOHandlerInterceptor handlerInterceptor;
+	private FaceRecognitionProvider faceRecognitionProvider;
 	
 	public FaceIDAuthenticatingFilter() {
 		super();
@@ -58,13 +49,13 @@ public class FaceIDAuthenticatingFilter extends AbstractTrustableAuthenticatingF
 		// 判断是否无状态
 		if (isSessionStateless()) {
 			// 获取当前请求 Kisso Token
-	        SSOToken ssoToken = SSOHelper.getSSOToken(WebUtils.toHttp(request));
+	       // SSOToken ssoToken = SSOHelper.getSSOToken(WebUtils.toHttp(request));
 			// 判断是否认证请求  
-	        if (ssoToken != null) {
+	        if (request != null) {
 	        	/*
 				 * 正常请求，request 设置 token 减少二次解密
 				 */
-                request.setAttribute(SSOConstants.SSO_TOKEN_ATTR, ssoToken);
+                //request.setAttribute(SSOConstants.SSO_TOKEN_ATTR, ssoToken);
 				// Step 1、生成Shiro Token 
 				AuthenticationToken token = createToken(request, response);
 				try {
@@ -134,66 +125,5 @@ public class FaceIDAuthenticatingFilter extends AbstractTrustableAuthenticatingF
 			return false;
 		}
 	}
-	
-	@Override
-	protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request,
-			ServletResponse response) {
-		
-		HttpServletRequest httpRequest = WebUtils.toHttp(request);
-		HttpServletResponse httpResponse = WebUtils.toHttp(response);
-		
-		// Ajax 请求：响应json数据对象
-		if (WebUtils.isAjaxResponse(request)) {
-			
-			if(this.getHandlerInterceptor() != null) {
-	    		/*
-	             * Handler 处理 AJAX 请求
-				 */
-	            this.getHandlerInterceptor().preTokenIsNullAjax(httpRequest, httpResponse);
-	            return false;
-	    	}
-
-			super.writeFailureString(token, e, request, response);
-
-			return false;
-		}
-		
-		if(this.getHandlerInterceptor() != null) {
-			/*
-			 * token 为空，调用 Handler 处理
-			 * 返回 true 继续执行，清理登录状态并重定向至登录界面
-			 */
-	        if (this.getHandlerInterceptor().preTokenIsNull(httpRequest, httpResponse)) {
-	            LOG.debug("logout. request url:" + httpRequest.getRequestURL());
-				try {
-					SSOHelper.clearRedirectLogin(httpRequest, httpResponse);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-	        }
-	       
-		} else {
-			
-			// 普通请求：重定向到登录页
-			try {
-				saveRequestAndRedirectToLogin(request, response);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			
-		}
-		return false;
-	}
-	
-	public SSOHandlerInterceptor getHandlerInterceptor() {
-        if (handlerInterceptor == null) {
-            return KissoDefaultHandler.getInstance();
-        }
-        return handlerInterceptor;
-    }
-
-    public void setHandlerInterceptor(SSOHandlerInterceptor handlerInterceptor) {
-        this.handlerInterceptor = handlerInterceptor;
-    }
-
+	 
 }
