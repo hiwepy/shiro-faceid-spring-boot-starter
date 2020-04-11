@@ -15,6 +15,8 @@
  */
 package org.apache.shiro.spring.boot.faceid.authc;
 
+import java.nio.charset.StandardCharsets;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
@@ -93,7 +95,8 @@ public class FaceIDAuthenticatingFilter extends AbstractTrustableAuthenticatingF
 				}
 				
 				WebUtils.toHttp(response).setStatus(HttpStatus.SC_BAD_REQUEST);
-				response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+				response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+				response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 				
 				// Response Authentication status information
 				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail(mString));
@@ -113,7 +116,8 @@ public class FaceIDAuthenticatingFilter extends AbstractTrustableAuthenticatingF
 			if (WebUtils.isAjaxRequest(request)) {
 				
 				WebUtils.toHttp(response).setStatus(HttpStatus.SC_UNAUTHORIZED);
-				response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+				response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+				response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 				
 				// Response Authentication status information
 				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail(mString));
