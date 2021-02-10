@@ -61,4 +61,9 @@ public class FaceIDAuthenticationSuccessHandler implements AuthenticationSuccess
 
 	}
 
+	@Override
+	public int getOrder() {
+		return Integer.MAX_VALUE - 2;
+	}
+	
 }
